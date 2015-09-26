@@ -400,7 +400,7 @@
 				ORGANIZATIONNAME = chungkhoan;
 				TargetAttributes = {
 					D105D80E5075F3A3D0C14F0B = {
-						DevelopmentTeam = Q47BC9T672;
+						DevelopmentTeam = LT5B79L8T7;
 					};
 				};
 			};

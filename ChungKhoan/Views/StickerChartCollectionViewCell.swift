@@ -48,7 +48,10 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
 
     @IBAction func withinButtonDidTouch(sender: UIButton) {
         self.viewModel.setWithinWithTag(sender.tag)
-        self.withinButtons.map { $0.selected = false }
+        self.withinButtons.map { button -> UIButton in
+            button.selected = false
+            return button
+        }
         sender.selected = true
         self.refresh()
     }
