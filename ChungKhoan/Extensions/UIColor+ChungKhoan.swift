@@ -1,6 +1,14 @@
 import UIKit
 
 extension UIColor {
+    class func upTextColor() -> UIColor {
+        return UIColor(red: 156 / 255.0, green: 190 / 255.0, blue: 96 / 255.0, alpha: 1)
+    }
+
+    class func downTextColor() -> UIColor {
+        return UIColor(red: 179 / 255.0, green: 110 / 255.0, blue: 81 / 255.0, alpha: 1)
+    }
+
     class func upBackgroundColor() -> UIColor {
         return UIColor(red: 156 / 255.0, green: 190 / 255.0, blue: 96 / 255.0, alpha: 1)
     }
