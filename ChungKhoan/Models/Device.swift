@@ -1,11 +1,10 @@
-//
-//  Device.swift
-//  ChungKhoan
 import RealmSwift
 import Alamofire
 
+let deviceID = UIDevice.currentDevice().identifierForVendor.UUIDString
+
 class Device: Object {
-    dynamic var device_id: String = NSUUID().UUIDString
+    dynamic var device_id: String = deviceID
     dynamic var total_asset: Float = 0.0
     dynamic var portfolio_gain: Float = 0.0
     dynamic var portfolio_gain_in_percentage: Float = 0
@@ -44,7 +43,7 @@ final class DeviceService {
     }
     
     class func fetchStickers(#device: Device, success: (Device) -> Void, failure: DeviceServiceFailureHandler? = nil) {
-        let request = Alamofire.request(Router.GetDeviceStickers(device: device.device_id)).responseJSON { (_, response, data, error) in
+        let request = Alamofire.request(Router.GetDeviceStickers(device: deviceID)).responseJSON { (_, response, data, error) in
             if let data: AnyObject = data {
                 let stickers = data["stickers"] as! [NSDictionary]
                 let meta = data["meta"] as! NSDictionary

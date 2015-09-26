@@ -1,7 +1,6 @@
 import UIKit
 
 class StickerInfoCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var companyDomainLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

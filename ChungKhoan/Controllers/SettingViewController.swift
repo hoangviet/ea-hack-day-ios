@@ -1,18 +1,10 @@
-//
-//  SettingViewController.swift
-//  ChungKhoan
-//
-//  Created by Hoang Viet on 9/27/15.
-//  Copyright (c) 2015 chungkhoan. All rights reserved.
-//
-
 import UIKit
+import MBProgressHUD
 
 class SettingViewController: UITableViewController {
-
     @IBOutlet weak var bottomPriceTextField: UITextField!
     @IBOutlet weak var ceilingPriceTextField: UITextField!
-    @IBOutlet weak var updateButton: UIButton!
+
     var viewModel: SettingViewModel!
     var stickerID: String?
     
@@ -22,6 +14,7 @@ class SettingViewController: UITableViewController {
             self.viewModel = SettingViewModel(stickerID: stickerID)
             self.bindViewModel()
         }
+        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
     }
 
     func bindViewModel() {
@@ -35,12 +28,27 @@ class SettingViewController: UITableViewController {
                 weakSelf.viewModel.ceiling = text.floatValue
             }
         })
+        self.viewModel.getPriceAlerts().start(next: { [weak self] _ in
+            if let weakSelf = self {
+                weakSelf.bottomPriceTextField.placeholder  = "\(weakSelf.viewModel.bottom)"
+                weakSelf.ceilingPriceTextField.placeholder = "\(weakSelf.viewModel.ceiling)"
+            }
+        })
     }
 
     @IBAction func updateButtonDidTouch(sender: AnyObject) {
         if self.viewModel == nil {
             return
         }
-        self.viewModel.createPriceAlerts().start()
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        self.viewModel.createPriceAlerts().start(completed: { [weak self] _ in
+            if let weakSelf = self {
+                MBProgressHUD.hideHUDForView(weakSelf.view, animated: true)
+            }
+        }, error: { [weak self] _ in
+            if let weakSelf = self {
+                MBProgressHUD.hideHUDForView(weakSelf.view, animated: true)
+            }
+        })
     }
 }

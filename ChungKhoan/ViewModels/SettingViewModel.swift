@@ -1,11 +1,3 @@
-//
-//  SettingViewModel.swift
-//  ChungKhoan
-//
-//  Created by Hoang Viet on 9/27/15.
-//  Copyright (c) 2015 chungkhoan. All rights reserved.
-//
-
 import Foundation
 import ReactiveCocoa
 import SwiftyJSON
@@ -20,8 +12,16 @@ class SettingViewModel {
         self.stickerID = stickerID
     }
 
-    func createPriceAlerts() -> SignalProducer<JSON, NoError> {
-        return self.stickerStore.createPriceAlerts(NSUUID().UUIDString,
+    func getPriceAlerts() -> SignalProducer<JSON, NSError> {
+        return self.stickerStore.getPriceAlerts(deviceID, stickerID: self.stickerID)
+            |> on(next: { json in
+                self.bottom  = json["bottom"].floatValue
+                self.ceiling = json["ceiling"].floatValue
+            })
+    }
+
+    func createPriceAlerts() -> SignalProducer<JSON, NSError> {
+        return self.stickerStore.createPriceAlerts(deviceID,
             stickerID: self.stickerID,
             bottom: self.bottom,
             ceiling: self.ceiling)
