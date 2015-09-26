@@ -64,17 +64,12 @@ class OverviewViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier! ==  "SegueStock") {
-            var selectedSticker: Sticker!
+            let stickerViewController = segue.destinationViewController as! StickerViewController
             if let deviceSticker = sender as? DeviceSticker {
-                selectedSticker = deviceSticker.sticker
+                stickerViewController.deviceSticker = deviceSticker
             } else if let sticker = sender as? Sticker {
-                selectedSticker = sticker
+                stickerViewController.sticker = sticker
             }
-            if selectedSticker != nil {
-                let stockViewController = segue.destinationViewController as! StickerViewController
-                stockViewController.sticker = selectedSticker
-            }
-
         }
     }
     

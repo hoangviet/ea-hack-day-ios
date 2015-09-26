@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let installation = PFInstallation.currentInstallation()
-        installation.addUniqueObject(NSUUID().UUIDString, forKey: "channels")
+        installation.addUniqueObject("d\(deviceID)", forKey: "channels")
         installation.saveEventually()
         return true
     }

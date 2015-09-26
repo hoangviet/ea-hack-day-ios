@@ -15,25 +15,16 @@ class SearchResultTableViewCell: UITableViewCell {
 
 // MARK: - Result View Controller
 class SearchResultsViewController: UITableViewController {
-    // Outlets
     @IBOutlet var resultTableView: UITableView!
-    
-    // Storyboard Id
     struct StoryboardConstants {
         static let identifier = "SearchResultsViewControllerIdentifier"
     }
-    
-    // Search Result Cell Identifier
     struct TableViewConstants {
         static let tableViewCellIdentifier = "SearchResultsCell"
     }
-    
-    // Results data
     var visibleResults: Results<Sticker>?
     var searchTimer: NSTimer?
     var didSelectResult: ((sticker: Sticker?) -> ())?
-    
-    // Current search string
     var filterString: String? = nil {
         didSet {
             if filterString != nil && !filterString!.isEmpty {
@@ -51,21 +42,18 @@ class SearchResultsViewController: UITableViewController {
             }
         }
     }
-    
-    // MARK: - Setup views
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupLoadingIndicator()
     }
     
     func setupLoadingIndicator() {
-        // Init Activity Indicator view
         let view = UIView(frame: CGRectMake(0, 0, self.tableView.frame.width, 50))
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.startAnimating()
-        // Put indicator in footer view
         self.tableView.tableFooterView = view
         self.tableView.tableFooterView?.hidden = true
     }

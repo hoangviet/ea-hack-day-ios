@@ -11,6 +11,7 @@ pod 'SwiftyJSON'
 pod 'ReactiveCocoa'
 pod 'FSLineChart'
 pod 'Parse'
+pod 'MBProgressHUD'
 
 target :unit_tests, :exclusive => true do
   link_with 'UnitTests'
