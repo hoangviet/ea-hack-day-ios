@@ -14,7 +14,6 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fB-kG-IBw" customClass="FSLineChart">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c34-2c-vns">
                         <rect key="frame" x="8" y="176" width="44" height="44"/>

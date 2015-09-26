@@ -39,14 +39,14 @@ class StickerChartViewModel {
     }
 
     func getStickerPrices() -> SignalProducer<[JSON], NoError> {
-        return self.stickerStore.getStickerPrices(self.stickerID)
+        return self.stickerStore.getStickerPrices(self.stickerID, within: self.within)
             |> on(next: { priceJSONs in
                 var values = [Float]()
-                var dates = [String]()
+                var dates  = [String]()                
                 for price in priceJSONs {
                     values.append(price["value"].floatValue)
                     if let date = price["updated_at"].stringValue.date {
-                        dates.append("1")
+                        dates.append(date.dateString)
                     } else {
                         dates.append("N/A")
                     }

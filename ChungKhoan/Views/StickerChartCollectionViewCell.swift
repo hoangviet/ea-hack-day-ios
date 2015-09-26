@@ -8,6 +8,7 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.chartView.frame.size = CGSizeMake(UIScreen.mainScreen().bounds.width, self.chartView.frame.height)
         self.chartView.labelForIndex = { [weak self] item in
             if let weakSelf = self {
                 if let dates = weakSelf.viewModel.dates {
@@ -29,6 +30,12 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
     func refresh() {
         self.viewModel.getStickerPrices().start(next: { [weak self] _ in
             if let weakSelf = self {
+                for subview in weakSelf.chartView.subviews  {
+                    if let view = subview as? UIView {
+                        view.removeFromSuperview()
+                    }
+                }
+                weakSelf.chartView.clearChartData()
                 weakSelf.chartView.setChartData(weakSelf.viewModel.prices)
             }
         })

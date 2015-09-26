@@ -27,6 +27,7 @@
 		3B781EF11BB6DD8900F73D1C /* StickerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B781EF01BB6DD8900F73D1C /* StickerStore.swift */; };
 		3B781EF31BB6DFDD00F73D1C /* StickerChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B781EF21BB6DFDD00F73D1C /* StickerChartViewModel.swift */; };
 		3B781EF71BB6F11300F73D1C /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B781EF61BB6F11300F73D1C /* String+Date.swift */; };
+		3B781EF91BB6F42600F73D1C /* NSDate+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B781EF81BB6F42600F73D1C /* NSDate+String.swift */; };
 		3B91A89F1B1CA3C800C9A43F /* ReferencePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91A89E1B1CA3C800C9A43F /* ReferencePrice.swift */; };
 		3B9239181AB43A8400DFF812 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9239171AB43A8400DFF812 /* OverviewViewController.swift */; };
 		3B92391A1AB45E6600DFF812 /* MoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9239191AB45E6600DFF812 /* MoverCollectionViewCell.swift */; };
@@ -74,6 +75,7 @@
 		3B781EF01BB6DD8900F73D1C /* StickerStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerStore.swift; sourceTree = "<group>"; };
 		3B781EF21BB6DFDD00F73D1C /* StickerChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerChartViewModel.swift; sourceTree = "<group>"; };
 		3B781EF61BB6F11300F73D1C /* String+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		3B781EF81BB6F42600F73D1C /* NSDate+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+String.swift"; sourceTree = "<group>"; };
 		3B91A89E1B1CA3C800C9A43F /* ReferencePrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencePrice.swift; sourceTree = "<group>"; };
 		3B9239171AB43A8400DFF812 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		3B9239191AB45E6600DFF812 /* MoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoverCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				3B359B3C1AB4903000F26851 /* UIColor+ChungKhoan.swift */,
 				3B781EEB1BB6619300F73D1C /* NSNumber+Currency.swift */,
 				3B781EF61BB6F11300F73D1C /* String+Date.swift */,
+				3B781EF81BB6F42600F73D1C /* NSDate+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3B781EE71BB6586500F73D1C /* OverviewViewModel.swift in Sources */,
 				3B359B481AB4B90F00F26851 /* StickerChartCollectionViewCell.swift in Sources */,
 				F7A55F962E94085A47E6EB6D /* Main.storyboard in Sources */,
+				3B781EF91BB6F42600F73D1C /* NSDate+String.swift in Sources */,
 				0AE7E06EC47B2BF98603E309 /* LaunchScreen.xib in Sources */,
 				3B5E8ABF1B1A36CC009F90D3 /* Sticker.swift in Sources */,
 				3B92391A1AB45E6600DFF812 /* MoverCollectionViewCell.swift in Sources */,

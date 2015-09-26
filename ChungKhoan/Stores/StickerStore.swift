@@ -12,9 +12,9 @@ import Alamofire
 import SwiftyJSON
 
 class StickerStore {
-    func getStickerPrices(stickerID: String) -> SignalProducer<[JSON], NoError> {
+    func getStickerPrices(stickerID: String, within: String) -> SignalProducer<[JSON], NoError> {
         return SignalProducer<[JSON], NoError> { sink, _ in
-            let request = Alamofire.request(Router.GetStickerPrices(stickerID: stickerID)).responseJSON { _, _, data, _ in
+            let request = Alamofire.request(Router.GetStickerPrices(stickerID: stickerID, within: within)).responseJSON { _, _, data, _ in
                 if let data: AnyObject = data {
                     let json = JSON(data)
                     sendNext(sink, json["prices"].arrayValue)
