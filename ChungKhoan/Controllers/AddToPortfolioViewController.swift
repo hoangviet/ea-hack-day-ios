@@ -69,9 +69,12 @@ class AddToPortfolioViewController: UIViewController {
                 MBProgressHUD.hideHUDForView(weakSelf.view, animated: true)
                 NSNotificationCenter.defaultCenter().postNotificationName("DidAddStickerToPortfolio", object: nil)
             }
-        }, error: { [weak self] _ in
+            }, error: { [weak self] (error: NSError) -> Void in
             if let weakSelf = self {
                 MBProgressHUD.hideHUDForView(weakSelf.view, animated: true)
+                if let errorMessage = error.userInfo?[NSLocalizedDescriptionKey] as? String {
+                    UIAlertController.show(weakSelf, title: "Không thể thêm vào danh mục", message: errorMessage)
+                }
             }
         })
     }

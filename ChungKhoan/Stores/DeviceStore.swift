@@ -9,8 +9,13 @@ class DeviceStore {
             let request = Alamofire.request(Router.AddStickerToDevice(name: stickerID, device: device, qty: quantity, unitPrice: unitPrice)).responseJSON { _, _, data, _ in
                 if let data: AnyObject = data {
                     let json = JSON(data)
-                    sendNext(sink, json)
-                    sendCompleted(sink)
+                    if let errorMessage = json["error"].string {
+                        let userInfo = [NSLocalizedDescriptionKey : errorMessage]
+                        sendError(sink, NSError(domain: "", code: 1, userInfo: userInfo))
+                    } else {
+                        sendNext(sink, json)
+                        sendCompleted(sink)
+                    }
                     return
                 }
                 let userInfo = [NSLocalizedDescriptionKey : "Đã có lỗi xảy ra"]
