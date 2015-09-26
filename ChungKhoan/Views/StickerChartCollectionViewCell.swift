@@ -9,6 +9,8 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.chartView.frame.size = CGSizeMake(UIScreen.mainScreen().bounds.width, self.chartView.frame.height)
+        self.chartView.fillColor = UIColor.redColor()
+        self.chartView.innerGridColor = UIColor.redColor()
         self.chartView.labelForIndex = { [weak self] item in
             if let weakSelf = self {
                 if let dates = weakSelf.viewModel.dates {
@@ -23,8 +25,10 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
     }
 
     func bindViewModel(viewModel: StickerChartViewModel) {
-        self.viewModel = viewModel
-        self.refresh()
+        if self.viewModel == nil {
+            self.viewModel = viewModel
+            self.refresh()
+        }
     }
 
     func refresh() {
@@ -43,6 +47,8 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
 
     @IBAction func withinButtonDidTouch(sender: UIButton) {
         self.viewModel.setWithinWithTag(sender.tag)
+        self.withinButtons.map { $0.selected = false }
+        sender.selected = true
         self.refresh()
     }
 }

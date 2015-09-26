@@ -16,39 +16,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c34-2c-vns">
-                        <rect key="frame" x="8" y="176" width="44" height="44"/>
+                        <rect key="frame" x="8" y="176" width="60" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="M8y-bR-fKs"/>
-                            <constraint firstAttribute="width" constant="44" id="z6w-jS-b9Q"/>
+                            <constraint firstAttribute="width" constant="60" id="z6w-jS-b9Q"/>
                         </constraints>
-                        <state key="normal" title="1w">
+                        <color key="tintColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="1 tuần">
+                            <color key="titleColor" red="0.16470588235294117" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="withinButtonDidTouch:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ngp-a8-h3T"/>
                         </connections>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaZ-Qm-XS4">
-                        <rect key="frame" x="138" y="176" width="44" height="44"/>
+                        <rect key="frame" x="130" y="176" width="60" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="eiw-7h-JEE"/>
+                            <constraint firstAttribute="width" constant="60" id="eiw-7h-JEE"/>
                             <constraint firstAttribute="height" constant="44" id="mfQ-eZ-jLL"/>
                         </constraints>
-                        <state key="normal" title="2w">
+                        <color key="tintColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="2 tuần">
+                            <color key="titleColor" red="0.16470588235294117" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="withinButtonDidTouch:" destination="gTV-IL-0wX" eventType="touchUpInside" id="vEj-GQ-SNU"/>
                         </connections>
                     </button>
                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72h-5f-iue">
-                        <rect key="frame" x="268" y="176" width="44" height="44"/>
+                        <rect key="frame" x="252" y="176" width="60" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="K9P-bB-IZg"/>
+                            <constraint firstAttribute="width" constant="60" id="K9P-bB-IZg"/>
                             <constraint firstAttribute="height" constant="44" id="YXH-3J-Hne"/>
                         </constraints>
-                        <state key="normal" title="1m">
+                        <color key="tintColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="1 tháng">
+                            <color key="titleColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="withinButtonDidTouch:" destination="gTV-IL-0wX" eventType="touchUpInside" id="vvZ-YK-Sjx"/>
