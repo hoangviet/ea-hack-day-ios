@@ -26,7 +26,7 @@ enum Router: URLRequestConvertible {
                 case .GetDeviceStickers(let device):
                     return ("/devices/\(device)/stickers", nil)
                 case .AddStickerToDevice(let sticker, let device, let qty, let unitPrice):
-                    return ("/devices/\(device)/stickers", ["name": sticker, "quantity": qty, "unit_value": unitPrice])
+                    return ("/devices/\(device)/stickers", ["sticker_id": sticker, "quantity": qty, "unit_value": unitPrice])
                 }
             }()
         
