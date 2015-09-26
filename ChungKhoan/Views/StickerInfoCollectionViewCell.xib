@@ -15,40 +15,28 @@
                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJ3-x3-o86">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple. Inc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYG-mD-ME1">
-                                <rect key="frame" x="8" y="8" width="304" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Apple. Inc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYG-mD-ME1">
+                                <rect key="frame" x="8" y="14" width="304" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Plk-Ci-t9a"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.3411764705882353" green="0.25098039215686274" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="apple.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tre-Om-wIe">
-                                <rect key="frame" x="8" y="29" width="304" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Mlf-r2-OSf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.26666666666666666" green="0.15686274509803921" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803926" green="0.94117647058823528" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pYG-mD-ME1" firstAttribute="top" secondItem="zJ3-x3-o86" secondAttribute="top" constant="8" id="6d7-Qm-9w9"/>
                             <constraint firstAttribute="trailing" secondItem="pYG-mD-ME1" secondAttribute="trailing" constant="8" id="Hdt-kS-YEz"/>
                             <constraint firstItem="pYG-mD-ME1" firstAttribute="leading" secondItem="zJ3-x3-o86" secondAttribute="leading" constant="8" id="TDh-uk-0rJ"/>
                             <constraint firstAttribute="height" constant="50" id="ajZ-UM-KX6"/>
-                            <constraint firstItem="tre-Om-wIe" firstAttribute="top" secondItem="pYG-mD-ME1" secondAttribute="bottom" id="nzA-rG-OlX"/>
-                            <constraint firstItem="tre-Om-wIe" firstAttribute="leading" secondItem="zJ3-x3-o86" secondAttribute="leading" constant="8" id="s8n-6b-uNb"/>
-                            <constraint firstAttribute="trailing" secondItem="tre-Om-wIe" secondAttribute="trailing" constant="8" id="yZ9-dW-grF"/>
+                            <constraint firstAttribute="centerY" secondItem="pYG-mD-ME1" secondAttribute="centerY" constant="0.5" id="fdv-Dd-Tgg"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YC-vH-JbG">
                         <rect key="frame" x="0.0" y="51" width="250" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 tỷ đ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUR-Wq-BvL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUR-Wq-BvL">
                                 <rect key="frame" x="8" y="11" width="161" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="h2b-CS-O2e"/>
@@ -57,7 +45,7 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.10196078431372549" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.52" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UK-e4-vlV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UK-e4-vlV">
                                 <rect key="frame" x="177" y="11" width="65" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="MSt-ik-TbS"/>
@@ -80,7 +68,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kG3-Lo-px0">
                         <rect key="frame" x="251" y="51" width="69" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.5%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGC-c5-f1O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGC-c5-f1O">
                                 <rect key="frame" x="8" y="11" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.3294117647" green="0.52941176469999995" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,7 +104,6 @@
             <connections>
                 <outlet property="changeLabel" destination="8UK-e4-vlV" id="0iU-r3-8tm"/>
                 <outlet property="changePercentLabel" destination="bGC-c5-f1O" id="G60-SZ-QSh"/>
-                <outlet property="companyDomainLabel" destination="tre-Om-wIe" id="8vU-Qw-Dkj"/>
                 <outlet property="companyNameLabel" destination="pYG-mD-ME1" id="1AI-kI-H26"/>
                 <outlet property="priceLabel" destination="DUR-Wq-BvL" id="hNK-Wa-hSR"/>
             </connections>
