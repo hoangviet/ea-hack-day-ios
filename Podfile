@@ -10,6 +10,7 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'ReactiveCocoa'
 pod 'FSLineChart'
+pod 'Parse'
 
 target :unit_tests, :exclusive => true do
   link_with 'UnitTests'
