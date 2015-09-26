@@ -39,13 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
         }
+        
+        let installation = PFInstallation.currentInstallation()
+        installation.addUniqueObject(NSUUID().UUIDString, forKey: "channels")
+        installation.saveEventually()
         return true
     }
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
-        installation.addUniqueObject(NSUUID().UUIDString, forKey: "channels")
         installation.saveEventually()
     }
 
