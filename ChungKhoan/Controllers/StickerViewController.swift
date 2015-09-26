@@ -60,8 +60,7 @@ extension StickerViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell:UICollectionViewCell?
-        if let section = StickerSections(rawValue: indexPath.section) {
+        if let section = StickerSections(rawValue: indexPath.section), let sticker = self.sticker {
             switch section {
             case .Info:
                 let infoCell = collectionView.dequeueReusableCellWithReuseIdentifier(stickerInfoReuseIdentifier, forIndexPath: indexPath) as! StickerInfoCollectionViewCell
@@ -78,17 +77,17 @@ extension StickerViewController: UICollectionViewDataSource {
                         change: 0,
                         changePercent: 0)
                 }
-                cell = infoCell
+                return infoCell
             case .Chart:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier(stickerChartReuseIdentifier, forIndexPath: indexPath)as! StickerChartCollectionViewCell
+                let chartCell = collectionView.dequeueReusableCellWithReuseIdentifier(stickerChartReuseIdentifier, forIndexPath: indexPath) as! StickerChartCollectionViewCell
+                chartCell.bindViewModel(StickerChartViewModel(stickerID: sticker.name))
+                return chartCell
             case .Data:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier(stickerDataReuseIdentifier, forIndexPath: indexPath)as! StickerDataCollectionViewCell
-            
+                return collectionView.dequeueReusableCellWithReuseIdentifier(stickerDataReuseIdentifier, forIndexPath: indexPath)as! StickerDataCollectionViewCell
             }
-            
         }
-        
-        return cell!
+
+        return UICollectionViewCell()
     }
     
 }
