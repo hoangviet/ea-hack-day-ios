@@ -14,8 +14,8 @@ class OverviewViewController: UIViewController {
     var currentDevice: Device? = nil {
         didSet {
             if let currentDevice = currentDevice {
-                self.totalAssetLabel.text    = "\(currentDevice.total_asset) đ"
-                self.portfolioGainLabel.text = "\(currentDevice.portfolio_gain) đ (--%)"
+                self.totalAssetLabel.text    = "\(currentDevice.totalAsset.currency)"
+                self.portfolioGainLabel.text = "\(currentDevice.portfolioGain.currency) (--%)"
                 self.movers = currentDevice.stickers
                 var upIdx = 0
                 var downIdx = 0

@@ -24,8 +24,6 @@ class StickerViewController: UIViewController {
             StickerService.fetch(sticker: sticker, success: { [unowned self] (sticker) -> Void in
                 self.sticker = sticker
                 self.collectionView.reloadData()
-            }, failure: { (_, _, _) -> Void in
-                // TODO Implement here
             })
             self.collectionView.registerNib(UINib(nibName: "StickerInfoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: self.stickerInfoReuseIdentifier)
             self.collectionView.registerNib(UINib(nibName: "StickerChartCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: self.stickerChartReuseIdentifier)
@@ -97,9 +95,7 @@ extension StickerViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension StickerViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-
         if let section = StickerSections(rawValue: indexPath.section) {
             switch section {
             case .Info:
@@ -118,5 +114,4 @@ extension StickerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
     }
-    
 }

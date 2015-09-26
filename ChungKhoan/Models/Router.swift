@@ -2,7 +2,6 @@ import Alamofire
 
 // Mark - Router
 enum Router: URLRequestConvertible {
-    // TODO use https
     static let baseURLString = "http://chungkhoan-api.nogias.com"
     case GetStickers
     case GetSticker(name: String)

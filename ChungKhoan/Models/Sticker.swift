@@ -17,7 +17,7 @@ final class StickerService {
     typealias StickerSuccessHandler = (Results<Sticker>) -> Void
     typealias StickerFailureHandler = (NSHTTPURLResponse?, AnyObject?, NSError?) -> Void
     
-    class func fetch(#sticker: Sticker, success: (Sticker) -> Void, failure: StickerFailureHandler) {
+    class func fetch(#sticker: Sticker, success: (Sticker) -> Void, failure: StickerFailureHandler? = nil) {
         Alamofire.request(Router.GetSticker(name: sticker.name))
             .responseJSON { (_, response, data, error) in
                 if let data: AnyObject = data {
@@ -28,11 +28,13 @@ final class StickerService {
                         return
                     }
                 }
-                failure(response, data, error)
+                if let failure = failure {
+                    failure(response, data, error)
+                }
         }
     }
     
-    class func searchBy(#query: String, success: StickerSuccessHandler, failure: StickerFailureHandler) {
+    class func searchBy(#query: String, success: StickerSuccessHandler, failure: StickerFailureHandler? = nil) {
         Alamofire.request(Router.GetStickers)
             .responseJSON { (_, response, data, error) in
                 if let data: AnyObject = data {
@@ -48,9 +50,11 @@ final class StickerService {
                         .sorted("name")
                     success(results)
                 } else {
-                    failure(response, data, error)
+                    if let failure = failure {
+                        failure(response, data, error)
+                    }
                 }
-                
+
         }
     }
 
