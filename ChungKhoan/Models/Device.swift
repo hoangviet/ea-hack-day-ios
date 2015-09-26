@@ -8,7 +8,17 @@ class Device: Object {
     dynamic var device_id: String = NSUUID().UUIDString
     dynamic var total_asset: Float = 0.0
     dynamic var portfolio_gain: Float = 0.0
-    
+//    dynamic var portfolio_gain_in_percentage: Float = 0
+
+    var totalAsset: NSNumber {
+        return NSNumber(float: self.total_asset)
+    }
+    var portfolioGain: NSNumber {
+        return NSNumber(float: self.portfolio_gain)
+    }
+//    var portfolioGainInPercentage: NSNumber {
+//        return NSNumber(float: self.portfolio_gain_in_percentage)
+//    }
     let stickers = List<DeviceSticker>()
     
     override static func primaryKey() -> String? {
@@ -34,7 +44,7 @@ final class DeviceService {
     }
     
     class func fetchStickers(#device: Device, success: (Device) -> Void, failure: DeviceServiceFailureHandler? = nil) {
-        Alamofire.request(Router.GetDeviceStickers(device: device.device_id)).responseJSON { (_, response, data, error) in
+        let request = Alamofire.request(Router.GetDeviceStickers(device: device.device_id)).responseJSON { (_, response, data, error) in
             if let data: AnyObject = data {
                 let stickers = data["stickers"] as! [NSDictionary]
                 let meta = data["meta"] as! NSDictionary
@@ -68,6 +78,7 @@ final class DeviceService {
                 failure(response, data, error)
             }
         }
+        debugPrintln(request)
     }
     
     class func add(#sticker: Sticker, toDevice: Device, quantity: Int, unitPrice: Float, success: () -> Void, failure: DeviceServiceFailureHandler) {
@@ -78,7 +89,6 @@ final class DeviceService {
                     success()
                     return
                 }
-                
                 println("Failed to add \(sticker.name) to \(toDevice.device_id)")
                 failure(response, data, error)
         }
