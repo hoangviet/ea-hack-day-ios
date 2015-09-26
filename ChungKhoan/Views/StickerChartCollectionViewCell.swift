@@ -22,6 +22,7 @@ class StickerChartCollectionViewCell: UICollectionViewCell {
         self.chartView.labelForValue = { [weak self] value in
             return "\(value)"
         }
+        self.withinButtons.first?.selected = true
     }
 
     func bindViewModel(viewModel: StickerChartViewModel) {
