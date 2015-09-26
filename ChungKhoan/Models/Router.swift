@@ -7,6 +7,8 @@ enum Router: URLRequestConvertible {
     case GetSticker(name: String)
     case GetDeviceStickers(device: String)
     case AddStickerToDevice(name: String, device: String, qty: Int, unitPrice: Float)
+    case GetStickerPrices(stickerID: String, within: String)
+
     var method: Alamofire.Method {
         switch self {
         case .AddStickerToDevice:
@@ -27,6 +29,8 @@ enum Router: URLRequestConvertible {
                     return ("/devices/\(device)/stickers", nil)
                 case .AddStickerToDevice(let sticker, let device, let qty, let unitPrice):
                     return ("/devices/\(device)/stickers", ["sticker_id": sticker, "quantity": qty, "unit_value": unitPrice])
+                case .GetStickerPrices(let stickerID, let within):
+                    return ("/stickers/\(stickerID)/prices", ["within": within])
                 }
             }()
         

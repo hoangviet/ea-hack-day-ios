@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -12,23 +12,86 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                 <subviews>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="chart" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-nz-PQR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fB-kG-IBw" customClass="FSLineChart">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c34-2c-vns">
+                        <rect key="frame" x="8" y="176" width="60" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="M8y-bR-fKs"/>
+                            <constraint firstAttribute="width" constant="60" id="z6w-jS-b9Q"/>
+                        </constraints>
+                        <color key="tintColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="1 tuần">
+                            <color key="titleColor" red="0.16470588235294117" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="withinButtonDidTouch:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ngp-a8-h3T"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaZ-Qm-XS4">
+                        <rect key="frame" x="130" y="176" width="60" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="eiw-7h-JEE"/>
+                            <constraint firstAttribute="height" constant="44" id="mfQ-eZ-jLL"/>
+                        </constraints>
+                        <color key="tintColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="2 tuần">
+                            <color key="titleColor" red="0.16470588235294117" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="withinButtonDidTouch:" destination="gTV-IL-0wX" eventType="touchUpInside" id="vEj-GQ-SNU"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72h-5f-iue">
+                        <rect key="frame" x="252" y="176" width="60" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="K9P-bB-IZg"/>
+                            <constraint firstAttribute="height" constant="44" id="YXH-3J-Hne"/>
+                        </constraints>
+                        <color key="tintColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="1 tháng">
+                            <color key="titleColor" red="0.1647058824" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="withinButtonDidTouch:" destination="gTV-IL-0wX" eventType="touchUpInside" id="vvZ-YK-Sjx"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Zre-nz-PQR" secondAttribute="trailing" id="7by-eZ-20B"/>
-                <constraint firstItem="Zre-nz-PQR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Y6i-Ru-axZ"/>
-                <constraint firstAttribute="bottom" secondItem="Zre-nz-PQR" secondAttribute="bottom" id="jky-s5-TnP"/>
-                <constraint firstItem="Zre-nz-PQR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qNd-xi-cii"/>
+                <constraint firstAttribute="centerX" secondItem="PaZ-Qm-XS4" secondAttribute="centerX" id="35b-2P-gji"/>
+                <constraint firstItem="c34-2c-vns" firstAttribute="top" secondItem="5fB-kG-IBw" secondAttribute="bottom" id="9ga-B4-1hl"/>
+                <constraint firstAttribute="trailing" secondItem="5fB-kG-IBw" secondAttribute="trailing" id="CMl-sp-gjN"/>
+                <constraint firstItem="c34-2c-vns" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="GYN-zF-5lj"/>
+                <constraint firstItem="PaZ-Qm-XS4" firstAttribute="top" secondItem="5fB-kG-IBw" secondAttribute="bottom" id="TPs-1L-itl"/>
+                <constraint firstItem="5fB-kG-IBw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bV9-Gb-W1i"/>
+                <constraint firstItem="5fB-kG-IBw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hiu-R2-xuv"/>
+                <constraint firstItem="72h-5f-iue" firstAttribute="top" secondItem="5fB-kG-IBw" secondAttribute="bottom" id="r1T-sf-gw7"/>
+                <constraint firstAttribute="trailing" secondItem="72h-5f-iue" secondAttribute="trailing" constant="8" id="ufP-vR-WkZ"/>
+                <constraint firstAttribute="bottom" secondItem="5fB-kG-IBw" secondAttribute="bottom" constant="44" id="zKK-N4-YTc"/>
             </constraints>
             <size key="customSize" width="320" height="220"/>
+            <connections>
+                <outlet property="chartView" destination="5fB-kG-IBw" id="LPi-7z-e6C"/>
+                <outletCollection property="withinButtons" destination="c34-2c-vns" collectionClass="NSMutableArray" id="c6g-gi-g0y"/>
+                <outletCollection property="withinButtons" destination="PaZ-Qm-XS4" collectionClass="NSMutableArray" id="nhU-Xg-FNi"/>
+                <outletCollection property="withinButtons" destination="72h-5f-iue" collectionClass="NSMutableArray" id="fR6-hp-HOh"/>
+            </connections>
             <point key="canvasLocation" x="286" y="315"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="chart" width="640" height="448"/>
-    </resources>
 </document>
