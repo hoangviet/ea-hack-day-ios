@@ -1,23 +1,35 @@
 import UIKit
 
 class StickerViewController: UIViewController {
-    
-    @IBOutlet weak var addOrRemoveButton: UIBarButtonItem!
-    
-    var sticker: Sticker?
-    
     private let stickerInfoReuseIdentifier  = "ReuseIdentifierStickerInfo"
     private let stickerChartReuseIdentifier = "ReuseIdentifierChartInfo"
     private let stickerDataReuseIdentifier  = "ReuseIdentifierDataInfo"
-    
     private enum StickerSections:Int {
         case Info = 0, Chart, Data
     }
-    
+
+    @IBOutlet weak var addOrRemoveButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
+    var sticker: Sticker?
+    var deviceSticker: DeviceSticker?
+    var inAddingSticker: Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let deviceSticker = self.deviceSticker {
+            self.sticker = deviceSticker.sticker
+            self.inAddingSticker = false
+            if let image = UIImage(named: "Icon_Alert") {
+                var settingButton = UIButton(frame: CGRectMake(0, 0, image.size.width, image.size.height))
+                settingButton.setBackgroundImage(image, forState: UIControlState.Normal)
+                settingButton.addTarget(self, action: Selector("addOrRemoveButtonDidTouch:"), forControlEvents: UIControlEvents.TouchUpInside)
+                let barSettingButton = UIBarButtonItem(customView: settingButton)
+                self.navigationItem.rightBarButtonItem = barSettingButton
+            }
+
+        }
+
         if let sticker = self.sticker {
             self.navigationItem.title = sticker.name
             // Sticker is not complete or outdate, It needs to fetch to fullfill
@@ -35,14 +47,24 @@ class StickerViewController: UIViewController {
     }
     
     @IBAction func addOrRemoveButtonDidTouch(sender: AnyObject) {
-        self.performSegueWithIdentifier("SegueAddToPortfolio", sender: sticker)
+        if self.inAddingSticker {
+            self.performSegueWithIdentifier("SegueAddToPortfolio", sender: sticker)
+        } else {
+            self.performSegueWithIdentifier("SegueSetting", sender: sticker)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier! ==  "SegueAddToPortfolio") {
-            if let sticker = sender as? Sticker {
+        if let sticker = sender as? Sticker, let identifier = segue.identifier  {
+            switch identifier {
+            case "SegueAddToPortfolio":
                 let addPortfolioViewController = segue.destinationViewController as! AddToPortfolioViewController
                 addPortfolioViewController.sticker = sticker
+            case "SegueSetting":
+                let settingViewController = segue.destinationViewController as! SettingViewController
+                settingViewController.stickerID = sticker.name
+            default:
+                break
             }
         }
     }
