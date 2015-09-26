@@ -8,7 +8,7 @@ class Device: Object {
     dynamic var device_id: String = NSUUID().UUIDString
     dynamic var total_asset: Float = 0.0
     dynamic var portfolio_gain: Float = 0.0
-//    dynamic var portfolio_gain_in_percentage: Float = 0
+    dynamic var portfolio_gain_in_percentage: Float = 0
 
     var totalAsset: NSNumber {
         return NSNumber(float: self.total_asset)
@@ -16,9 +16,9 @@ class Device: Object {
     var portfolioGain: NSNumber {
         return NSNumber(float: self.portfolio_gain)
     }
-//    var portfolioGainInPercentage: NSNumber {
-//        return NSNumber(float: self.portfolio_gain_in_percentage)
-//    }
+    var portfolioGainInPercentage: NSNumber {
+        return NSNumber(float: self.portfolio_gain_in_percentage)
+    }
     let stickers = List<DeviceSticker>()
     
     override static func primaryKey() -> String? {
@@ -82,15 +82,14 @@ final class DeviceService {
     }
     
     class func add(#sticker: Sticker, toDevice: Device, quantity: Int, unitPrice: Float, success: () -> Void, failure: DeviceServiceFailureHandler) {
-        Alamofire.request(Router.AddStickerToDevice(name: sticker.name, device: toDevice.device_id, qty: quantity, unitPrice: unitPrice))
+        let request = Alamofire.request(Router.AddStickerToDevice(name: sticker.name, device: toDevice.device_id, qty: quantity, unitPrice: unitPrice))
             .responseJSON { (_, response, data, error) in
                 if let data: AnyObject = data {
-                    println("Added \(sticker.name) to \(toDevice.device_id)")
                     success()
                     return
                 }
-                println("Failed to add \(sticker.name) to \(toDevice.device_id)")
                 failure(response, data, error)
         }
+        debugPrintln(request)
     }
 }
