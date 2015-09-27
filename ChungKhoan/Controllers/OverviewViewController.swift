@@ -74,29 +74,7 @@ class OverviewViewController: UIViewController {
     }
     
     func addStickerToPortfolio(notification: NSNotification) {
-        if let sticker = notification.object as? Sticker {
-//            self.movers.append(sticker)
-            var upIdx = 0
-            var downIdx = 0
-            self.moversMask = [[Int]]()
-            for (idx, mover) in enumerate(self.movers) {
-                if (true) {
-                    if (upIdx > self.moversMask.count-1) {
-                        self.moversMask.insert([-1, -1], atIndex: upIdx)
-                    }
-                    self.moversMask[upIdx][0] = idx
-                    upIdx++
-                } else {
-                    if (downIdx > self.moversMask.count-1) {
-                        self.moversMask.insert([-1, -1], atIndex: downIdx)
-                    }
-                    self.moversMask[downIdx][1] = idx
-                    downIdx++
-                }
-            }
-            self.moversCollectionView.reloadData()
-            self.navigationController?.popToViewController(self, animated: true)
-        }
+        self.navigationController?.popToViewController(self, animated: true)
     }
     
     @IBAction func addButtonDidTouch(sender: AnyObject) {
@@ -152,7 +130,7 @@ extension OverviewViewController: UICollectionViewDataSource {
             }
         }
         
-        cell.configure(stock: sticker.name, price: sticker.reference_price, changePercent: 0)
+        cell.configure(stock: sticker.name, price: sticker.referencePrice, changePercent: 0)
         return cell
     }
 }
