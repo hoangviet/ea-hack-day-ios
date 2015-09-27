@@ -130,7 +130,7 @@ extension OverviewViewController: UICollectionViewDataSource {
             }
         }
         
-        cell.configure(stock: sticker.name, price: sticker.reference_price, changePercent: 0)
+        cell.configure(stock: sticker.name, price: sticker.referencePrice, changePercent: 0)
         return cell
     }
 }

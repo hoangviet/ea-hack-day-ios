@@ -44,6 +44,7 @@ class SettingViewController: UITableViewController {
         self.viewModel.createPriceAlerts().start(completed: { [weak self] _ in
             if let weakSelf = self {
                 MBProgressHUD.hideHUDForView(weakSelf.view, animated: true)
+                UIAlertController.show(weakSelf, title: "Đã lưu", message: "Thông tin cảnh báo giá đã được cập nhật")
             }
         }, error: { [weak self] _ in
             if let weakSelf = self {

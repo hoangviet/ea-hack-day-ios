@@ -21,11 +21,12 @@ final class StickerService {
         Alamofire.request(Router.GetSticker(name: sticker.name))
             .responseJSON { (_, response, data, error) in
                 if let data: AnyObject = data {
-                    let sticker = data["sticker"] as! NSDictionary
-                    let realm = Realm()
-                    realm.write {
-                        success(realm.create(Sticker.self, value: sticker, update: true))
-                        return
+                    if let sticker = data["sticker"] as? NSDictionary {
+                        let realm = Realm()
+                        realm.write {
+                            success(realm.create(Sticker.self, value: sticker, update: true))
+                            return
+                        }
                     }
                 }
                 if let failure = failure {

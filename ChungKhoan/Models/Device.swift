@@ -10,10 +10,10 @@ class Device: Object {
     dynamic var portfolio_gain_in_percentage: Float = 0
 
     var totalAsset: NSNumber {
-        return NSNumber(float: self.total_asset)
+        return NSNumber(float: self.total_asset * 1000)
     }
     var portfolioGain: NSNumber {
-        return NSNumber(float: self.portfolio_gain)
+        return NSNumber(float: self.portfolio_gain * 1000)
     }
     var portfolioGainInPercentage: NSNumber {
         return NSNumber(float: self.portfolio_gain_in_percentage)

@@ -87,9 +87,9 @@ extension StickerViewController: UICollectionViewDataSource {
             case .Info:
                 let infoCell = collectionView.dequeueReusableCellWithReuseIdentifier(stickerInfoReuseIdentifier, forIndexPath: indexPath) as! StickerInfoCollectionViewCell
                 if let sticker = self.sticker {
-                    var price:Float = 0.0
+                    var price: NSNumber = 0.0
                     if let referencePrice = sticker.reference_price {
-                        price = referencePrice.value
+                        price = referencePrice.price
                     }
                     
                     infoCell.configure(

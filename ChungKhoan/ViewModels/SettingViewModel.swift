@@ -15,15 +15,15 @@ class SettingViewModel {
     func getPriceAlerts() -> SignalProducer<JSON, NSError> {
         return self.stickerStore.getPriceAlerts(deviceID, stickerID: self.stickerID)
             |> on(next: { json in
-                self.bottom  = json["bottom"].floatValue
-                self.ceiling = json["ceiling"].floatValue
+                self.bottom  = json["bottom"].floatValue * 1000
+                self.ceiling = json["ceiling"].floatValue * 1000
             })
     }
 
     func createPriceAlerts() -> SignalProducer<JSON, NSError> {
         return self.stickerStore.createPriceAlerts(deviceID,
             stickerID: self.stickerID,
-            bottom: self.bottom,
-            ceiling: self.ceiling)
+            bottom: self.bottom / 1000,
+            ceiling: self.ceiling / 1000)
     }
 }
